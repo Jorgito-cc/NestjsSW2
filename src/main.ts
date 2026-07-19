@@ -12,7 +12,7 @@ async function bootstrap() {
 
   // Habilitamos el middleware para manejar subida de archivos (multipart)
   app.use(
-    graphqlUploadExpress({ maxFileSize: 10 * 1024 * 1024, maxFiles: 10 }),
+    graphqlUploadExpress({ maxFileSize: 100 * 1024 * 1024, maxFiles: 10 }),
   );
 
   await app.listen(process.env.PORT ?? 3000);
