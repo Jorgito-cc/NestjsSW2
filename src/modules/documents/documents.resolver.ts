@@ -7,7 +7,7 @@ import { GraphQLUpload, FileUpload } from 'graphql-upload-ts';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 // Validaciones por defecto (puedes ajustarlas)
-const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB
+const MAX_FILE_SIZE_BYTES = 100 * 1024 * 1024; // 100 MB
 const ALLOWED_MIME = [
   'image/jpeg',
   'image/png',
