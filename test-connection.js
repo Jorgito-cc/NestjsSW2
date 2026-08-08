@@ -5,7 +5,7 @@ const client = new Client({
 client.connect()
   .then(async () => {
     console.log('CONNECTED TO TOKAIDO SUCCESSFUL!');
-    
+
     const tables = ['usuarios', 'ofertas', 'postulaciones', 'candidatos', 'empresas', 'reclutadores'];
     for (const table of tables) {
       try {
@@ -15,12 +15,12 @@ client.connect()
         console.log(`Table ${table} error:`, err.message);
       }
     }
-    
+
     // Check reclutadores in ofertas table
     try {
       const res = await client.query('SELECT reclutador_id, COUNT(*) as count FROM ofertas GROUP BY reclutador_id');
       console.log('Offers by Reclutador ID:', res.rows);
-      
+
       const reclutador1 = await client.query('SELECT id, email, nombre, apellido, rol FROM usuarios WHERE email = \'reclutador1@agencia.bo\'');
       console.log('Reclutador 1 User:', reclutador1.rows);
     } catch (err) {
